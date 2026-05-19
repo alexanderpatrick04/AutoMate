@@ -18,14 +18,14 @@ AutoMate is a Chrome extension that makes the car shopping experience by using:
 
 ## Screenshots
 
-![Listing with Sidebar](screenshots/full_listing_ss.png)
+![Listing with Sidebar](Automate/screenshots/full_listing_ss.png)
 
-![Vehicle Information](screenshots/vehicle_info_ss.png)
+![Vehicle Information](Automate/screenshots/vehicle_info_ss.png)
 
-![Vehicle Condition](screenshots/vehicle_condition_ss.png)
+![Vehicle Condition](Automate/screenshots/vehicle_condition_ss.png)
 
-![Safety Data](screenshots/safety_ss.png)
+![Safety Data](Automate/screenshots/safety_ss.png)
 
-![Recall Data](screenshots/recalls_ss.png)
+![Recall Data](Automate/screenshots/recalls_ss.png)
 
-![Coming Soon](screenshots/coming_soon_ss.png)
+![Coming Soon](Automate/screenshots/coming_soon_ss.png)
