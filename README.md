@@ -15,3 +15,11 @@ AutoMate is a Chrome extension that makes the car shopping experience by using:
 ## Future Features
 - Market comps
 - Reliability scoring
+
+## Screenshots
+![Listing with Sidebar](full_listing_ss)
+![Vehicle Information](vehicle_info_ss)
+![Vehicle Condition](vehicle_condition_ss)
+![Safety Data](safety_ss)
+![Recall Data](recalls_ss)
+![Coming Soon](coming_soon_ss)
