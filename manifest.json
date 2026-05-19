@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "AutoMate",
+  "version": "0.1.0",
+  "description": "Shows vehicle insights while browsing car listings.",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+  {
+    "matches": ["https://*/*", "http://*/*"],
+    "js": [
+      "utils.js",
+      "extractors.js",
+      "nhtsaApi.js",
+      "sidebar.js",
+      "content.js"
+    ],
+    "css": ["sidebar.css"]
+  }
+]
+}
