@@ -118,7 +118,11 @@ function badge(icon, status) {
 function renderSidebarHTML(data) {
   return `
     <div id="AutoMate-header">
-      <h2>AutoMate</h2>
+      <div id="AutoMate-brand">
+        <img id="AutoMate-logo" src="${chrome.runtime.getURL("assets/AutoMate_logo.png")}" alt="AutoMate logo">
+        <h2>AutoMate</h2>
+      </div>
+
       <button id="AutoMate-toggle">−</button>
     </div>
 
@@ -208,23 +212,23 @@ function setupSidebarToggle() {
   const toggleButton = document.getElementById("AutoMate-toggle");
   const content = document.getElementById("AutoMate-content");
 
-  if (!sidebar || !toggleButton || !content) return;
+  if (!sidebar || !toggleButton || !content) {
+    console.error("Toggle setup failed:", {
+      sidebar,
+      toggleButton,
+      content
+    });
+    return;
+  }
 
-  let minimized = false;
+  toggleButton.onclick = () => {
+  const minimized = content.style.display === "none";
 
-  toggleButton.addEventListener("click", () => {
-    minimized = !minimized;
+  content.style.display = minimized ? "block" : "none";
+  toggleButton.textContent = minimized ? "−" : "+";
 
-    if (minimized) {
-      content.style.display = "none";
-      sidebar.style.width = "140px";
-      toggleButton.textContent = "+";
-    } else {
-      content.style.display = "block";
-      sidebar.style.width = "320px";
-      toggleButton.textContent = "−";
-    }
-  });
+  sidebar.classList.toggle("is-minimized", !minimized);
+  };
 }
 
 function setupRecallButton() {

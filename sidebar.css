@@ -28,22 +28,43 @@
   font-weight: 700;
 }
 
-#AutoMate-header { /* Header section with title and toggle button */
+#AutoMate-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  width: 100%;
   margin-bottom: 12px;
 }
 
-#AutoMate-header h2 { /* Sidebar title style */
+#AutoMate-brand { /* Container for the logo and title in the header */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#AutoMate-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+#AutoMate-brand h2 { /* Style for the AutoMate title in the header */
   margin: 0;
   font-size: 28px;
   color: #5059b9;
+  line-height: 1;
 }
 
-#AutoMate-toggle { /* Button to collapse/expand sidebar */
-  width: 28px;
-  height: 28px;
+#AutoMate-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
   border: none;
   border-radius: 6px;
 
@@ -51,11 +72,14 @@
   color: white;
 
   cursor: pointer;
+
   font-size: 18px;
   font-weight: bold;
+
+  flex-shrink: 0;
 }
 
-#AutoMate-toggle:hover { /* Darken on hover */
+#AutoMate-toggle:hover {
   background: #5059b9;
 }
 
@@ -185,4 +209,35 @@
 .condition-badge.neutral {
   background: #ffffff;
   color: #555;
+}
+
+#AutoMate-brand { /* Container for the logo and title in the header */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#car-ai-sidebar.is-minimized {
+  width: 320px;
+  padding: 14px 16px;
+  overflow: hidden;
+}
+
+#car-ai-sidebar.is-minimized #AutoMate-header {
+  margin-bottom: 0;
+}
+
+#car-ai-sidebar.is-minimized #AutoMate-logo {
+  width: 34px;
+  height: 34px;
+}
+
+#car-ai-sidebar.is-minimized #AutoMate-brand h2 {
+  font-size: 28px;
+}
+
+#car-ai-sidebar.is-minimized #AutoMate-toggle {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
 }
