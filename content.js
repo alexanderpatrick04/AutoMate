@@ -1,5 +1,3 @@
-
-
 async function createSidebar() {
   if (document.getElementById("car-ai-sidebar")) return;
 
@@ -7,19 +5,21 @@ async function createSidebar() {
   const price = findPrice();
   const mileage = findMileage();
 
-  const vehicle = await decodeVIN(vin);
-  const recalls = vehicle
-    ? await fetchRecalls(vehicle.year, vehicle.make, vehicle.model)
-    : [];
+  const backendAnalysis = await fetchVehicleAnalysis({
+    vin,
+    price,
+    mileage
+  });
 
-  const safetyRatings = vehicle
-    ? await fetchSafetyRatings(vehicle.year, vehicle.make, vehicle.model)
-    : null;
+  const vehicle = backendAnalysis?.vehicle || null;
+  const recalls = backendAnalysis?.recalls || [];
+  const safetyRatings = backendAnalysis?.safetyRatings || null;
 
   const data = {
     vin,
     price,
     mileage,
+
     vehicleName: vehicle
       ? `${vehicle.year} ${vehicle.make} ${vehicle.model}`
       : "Not found",
@@ -33,14 +33,14 @@ async function createSidebar() {
     recallHTML: buildRecallHTML(recalls),
 
     nicbURL: vin
-        ? `https://www.nicb.org/vincheck?vin=${vin}`
-        : "https://www.nicb.org/vincheck",
+      ? `https://www.nicb.org/vincheck?vin=${vin}`
+      : "https://www.nicb.org/vincheck",
 
     safetyRatings: {
-        overall: safetyRatings?.OverallRating || "N/A",
-        front: safetyRatings?.OverallFrontCrashRating || "N/A",
-        side: safetyRatings?.OverallSideCrashRating || "N/A",
-        rollover: safetyRatings?.RolloverRating || "N/A"
+      overall: safetyRatings?.OverallRating || "N/A",
+      front: safetyRatings?.OverallFrontCrashRating || "N/A",
+      side: safetyRatings?.OverallSideCrashRating || "N/A",
+      rollover: safetyRatings?.RolloverRating || "N/A"
     }
   };
 

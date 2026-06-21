@@ -1,4 +1,8 @@
 {
+  "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'; connect-src http://localhost:3000 https://vpic.nhtsa.dot.gov https://api.nhtsa.gov;"
+  },
+  
   "manifest_version": 3,
   "name": "AutoMate",
   "version": "0.1.0",
@@ -15,11 +19,13 @@
   "permissions": [],
 
   "host_permissions": [
-  "https://*/*",
-  "http://*/*",
-  "https://vpic.nhtsa.dot.gov/*",
-  "https://api.nhtsa.gov/*"
-],
+    "https://*/*",
+    "http://*/*",
+    "http://localhost:3000/*",
+    "https://vpic.nhtsa.dot.gov/*",
+    "https://api.nhtsa.gov/*"
+  ],
+
 "content_scripts": [
   {
     "matches": [
@@ -27,10 +33,10 @@
       "http://*/*"
     ],
     "js": [
-      "extractors.js",
-      "NHTSAapi.js",
-      "sidebar.js",
-      "content.js"
+  "extractors.js",
+  "sidebar.js",
+  "backendApi.js",
+  "content.js"
     ],
     "css": [
       "sidebar.css"
